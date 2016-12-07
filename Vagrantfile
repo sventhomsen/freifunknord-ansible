@@ -14,6 +14,14 @@ Vagrant.configure("2") do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "debian/jessie64"
 
+  # Set hostname
+  config.vm.hostname = "vpn99.ffnord.net"
+
+  # Configure virtualbox, set name of vbox to hostname
+  config.vm.provider "virtualbox" do |vbox|
+	vbox.name = "vpn99.ffnord.net"
+  end
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -68,4 +76,11 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.verbose = "v"
+    ansible.playbook = "site.yml"
+    ansible.inventory_path = "test"
+    ansible.limit = "all"
+  end
 end

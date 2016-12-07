@@ -1,0 +1,4 @@
+gateway_hostname: vpn99
+
+gateway_interface_uplink: eth0
+

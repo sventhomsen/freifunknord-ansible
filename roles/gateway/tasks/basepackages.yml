@@ -1,0 +1,14 @@
+---
+# additional packages based on debian 8 clean install
+- name: Install sudo
+  apt: name=sudo state=latest
+
+- name: Install apt-transport-https
+  apt: name=sudo state=latest
+
+- name: Install git
+  apt: name=git state=latest
+
+
+
+

@@ -1,2 +1,3 @@
 [gateways]
-vpn99.ffnord.net
+vpn99.ffnord.net ansible_port=2222 ansible_host=127.0.0.1 ansible_user=vagrant ansible_become=yes
+
