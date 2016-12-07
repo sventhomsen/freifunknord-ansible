@@ -6,7 +6,7 @@ method "xsalsa20-poly1305"; # deprecated
 bind any: {{ fastd_port }};
 hide ip addresses yes;
 hide mac addresses yes;
-include "secret.conf";
+secret "{{ gateway_fastd_secret }} ";
 mtu {{ mesh_mtu }};
 status socket "/var/run/fastd-status.sock";
 include peers from "peers";

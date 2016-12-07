@@ -4,3 +4,5 @@ gateway_interface_uplink: eth0
 
 gateway_mesh_mac: 'fe:ed:be:ef:ff:99'
 
+gateway_fastd_secret: 'DONOTUSEINSECURE'
+

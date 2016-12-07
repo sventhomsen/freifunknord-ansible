@@ -16,12 +16,26 @@
      name: fastd 
      state: present 
 
-- name: Generate /etc/fastd/fastd.conf
+- name: Enable fastd
+  service:
+    name: fastd
+    state: started
+
+- name: Generate /etc/fastd/ffnord/fastd.conf
   template:
-    src: roles/gateway/templates/etc/fastd/fastd.conf.y2
-    dest: /etc/fastd/fastd.conf
+    src: roles/gateway/templates/etc/fastd/ffnord/fastd.conf.y2
+    dest: /etc/fastd/ffnord/fastd.conf
     owner: root
     group: root
     mode: 0600
+  notify:
+    - restart fastd
 
-
+- name: Build fastd peers from git
+  git:
+      repo: https://github.com/Freifunk-Nord/nord-gw-peers
+      dest: /etc/fastd/ffnord/peers
+  notify:
+    - restart fastd
+       
+  

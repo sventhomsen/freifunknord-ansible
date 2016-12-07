@@ -1,0 +1,3 @@
+---
+
+- include: restart-fastd.yml
