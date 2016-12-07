@@ -9,7 +9,7 @@
   apt_repository:
     repo: deb https://repo.universe-factory.net/debian/ sid main
     state: present
-    filename: 'batman-adv'
+    filename: 'repo.universe-factory.net'
 
 - name: UGLY HACK! Delete provided batman_adv.ko (we'll use some older version)
   file: 
@@ -32,5 +32,7 @@
      name: batctl=2013.4.0* 
      state: present 
      force: yes
+
+
 
  

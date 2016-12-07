@@ -1,0 +1,21 @@
+log to syslog as "fastd" level error;
+interface "fastd-mvpn";
+method "salsa2012+umac";    # since fastd v15
+method "salsa2012+gmac";
+method "xsalsa20-poly1305"; # deprecated
+bind any: {{ fastd_port }};
+hide ip addresses yes;
+hide mac addresses yes;
+include "secret.conf";
+mtu {{ mesh_mtu }};
+status socket "/var/run/fastd-status.sock";
+include peers from "peers";
+on up "
+ modprobe batman-adv
+ ip link set address {{ gateway_mesh_mac }} dev $INTERFACE
+ /usr/sbin/batctl -m bat0 if add $INTERFACE
+ ip link set address {{ gateway_mesh_mac }} dev bat0
+ ifup bat0
+ ip link set up dev $INTERFACE
+ systemctl restart alfred 
+";

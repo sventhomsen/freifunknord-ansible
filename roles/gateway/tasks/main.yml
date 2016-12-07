@@ -2,3 +2,4 @@
 
 - include: basepackages.yml 
 - include: batman.yml
+- include: fastd.yml

@@ -11,6 +11,8 @@ mesh_mtu: 1280
 
 gateways_domainname: ffnord.net
 
+fastd_port: 10050
+
 
 
 
