@@ -8,7 +8,7 @@ hide ip addresses yes;
 hide mac addresses yes;
 secret "{{ gateway_fastd_secret }} ";
 mtu {{ mesh_mtu }};
-status socket "/var/run/fastd-{{ mesh_shortname }}status.sock";
+status socket "/var/run/fastd-{{ mesh_shortname }}-status.sock";
 include peers from "peers";
 on up "
  modprobe batman-adv

@@ -21,6 +21,12 @@
     name: fastd
     state: started
 
+- name: Create Directory /etc/fastd/ffnord/
+  file:
+    path: /etc/fastd/ffnord
+    state: directory
+    mode: 0600
+
 - name: Generate /etc/fastd/ffnord/fastd.conf
   template:
     src: roles/gateway/templates/etc/fastd/ffnord/fastd.conf.y2
