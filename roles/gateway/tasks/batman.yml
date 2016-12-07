@@ -11,8 +11,26 @@
     state: present
     filename: 'batman-adv'
 
-- name: Install B.A.T.M.A.N Advanced Kernel module via dkms
-  apt: name='batman-adv-dkms' state=latest
+- name: UGLY HACK! Delete provided batman_adv.ko (we'll use some older version)
+  file: 
+     path: /lib/modules/3.16.0-4-amd64/kernel/net/batman-adv/batman-adv.ko
+     state: absent 
 
 - name: Install B.A.T.M.A.N Advanced Kernel module via dkms
-  apt: name='batctl' state=latest 
+  apt: 
+     name:  batman-adv-dkms=2013.4.0* 
+     state: present 
+     force: yes
+
+- name: Ensure batman-adv is loaded
+  modprobe:
+     name: batman-adv
+     state: present
+
+- name: Install batctl
+  apt: 
+     name: batctl=2013.4.0* 
+     state: present 
+     force: yes
+
+ 
