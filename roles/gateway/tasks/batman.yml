@@ -1,0 +1,18 @@
+---
+
+-  name: Add sigining-key for B.A.T.M.A.N Advanced apt-repo
+   apt_key:
+    id: 16EF3F64CB201D9C
+    keyserver: pgpkeys.mit.edu
+
+- name: Add B.A.T.M.A.N Advanced apt-repo 
+  apt_repository:
+    repo: deb https://repo.universe-factory.net/debian/ sid main
+    state: present
+    filename: 'batman-adv'
+
+- name: Install B.A.T.M.A.N Advanced Kernel module via dkms
+  apt: name='batman-adv-dkms' state=latest
+
+- name: Install B.A.T.M.A.N Advanced Kernel module via dkms
+  apt: name='batctl' state=latest 
