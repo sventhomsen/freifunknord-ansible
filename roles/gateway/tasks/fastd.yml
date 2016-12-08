@@ -25,7 +25,7 @@
   file:
     path: /etc/fastd/ffnord
     state: directory
-    mode: 0600
+    mode: 0644
 
 - name: Generate /etc/fastd/ffnord/fastd.conf
   template:
@@ -43,5 +43,6 @@
       dest: /etc/fastd/ffnord/peers
   notify:
     - restart fastd
+    - restart bridge
        
   

@@ -1,7 +1,4 @@
 ---
 
 - name: restart bridge
-  service:
-    name: networking
-    state: restarted
-    arguments: br-{{ mesh_shortname }}
+  command: bash -c "ifdown br-{{ mesh_shortname }} && ifup br-{{ mesh_shortname }}"

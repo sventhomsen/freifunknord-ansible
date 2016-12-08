@@ -4,7 +4,7 @@ gateway_interface_uplink: eth0
 
 gateway_mesh_mac: 'fe:ed:be:ef:ff:99'
 
-gateway_fastd_secret: 'DONOTUSEINSECURE'
+gateway_fastd_secret: 'a89eb512fdb588a8770b05d3c13a6a2f7c1564c4d2f0ed5a560096012311596d'
 
 gateway_ipv4_address: '10.187.199.1'
 gateway_ipv4_netmask: '255.255.128.0'

@@ -1,7 +1,4 @@
 ---
 
 - name: restart batman
-  service:
-    name: networking
-    state: restarted
-    arguments: bat-{{ mesh_shortname }}
+  command: bash -c "ifdown bat-{{ mesh_shortname }} && ifup bat-{{ mesh_shortname }}"

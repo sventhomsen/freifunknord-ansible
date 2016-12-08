@@ -1,5 +1,11 @@
 ---
 
+
+- name: Install bridge-utils
+  apt: 
+     name:  bridge-utils 
+     state: latest 
+
 - name: Setup Freifunk bridge
   template:
     src:  roles/gateway/templates/etc/network/interfaces.d/mesh-bridge.y2
@@ -8,7 +14,7 @@
     group: root
     mode: 0644
   notify:
-    - restart bridge
+    - restart fastd
 
   
 
