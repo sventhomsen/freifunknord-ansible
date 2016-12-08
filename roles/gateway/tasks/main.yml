@@ -5,3 +5,4 @@
 - include: batman.yml
 - include: fastd.yml
 - include: interfaces.yml
+- include: hideio.yml

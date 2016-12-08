@@ -12,3 +12,6 @@ gateway_ipv4_netmask: '255.255.128.0'
 gateway_ipv6_address: '2a03:2267:4e6f:7264::fd99'
 gateway_ipv6_prefixlen: '64'
 
+gateway_hideio_username: hideiouser
+gateway_hideio_password: hideiopass
+gateway_hideio_server: hideioserver

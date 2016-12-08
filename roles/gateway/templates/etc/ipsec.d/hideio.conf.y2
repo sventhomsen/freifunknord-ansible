@@ -1,0 +1,14 @@
+hideio
+  keyexchange=ikev2
+  dpdaction=clear
+  dpddelay=300s
+  eap_identity={{ gateway_hideio_username }}
+  leftauth=eap-mschapv2
+  left=%defaultroute
+  leftsourceip=%config
+  right={{ gateway_hideio_server }}
+  rightauth=pubkey
+  rightsubnet=0.0.0.0/0
+  rightid=%any
+  type=tunnel
+  auto=add

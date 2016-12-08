@@ -1,0 +1,33 @@
+---
+
+- name: Install StrongSwan for hide.io
+  apt:
+    name: strongswan
+    state: latest
+
+- name: Configure StrongSwan for hide.io
+  template:
+    src: roles/gateway/templates/etc/ipsec.d/hideo.conf.y2
+    dest: /etc/ipsec.d/hideio.conf
+    owner: root
+    group: root
+    mode: 0600
+  template:
+    src: roles/gateway/templates/etc/ipsec.d/private/hideo.y2
+    dest: /etc/ipsec.d/private/hideio
+    owner: root
+    group: root
+    mode: 0600
+  lineinfile:
+    dest: /etc/ipsec.conf
+    line: 'include /etc/ipsec.d/hideio.conf'
+  lineinfile:
+    dest: /etc/ipsec.secrets
+    line: 'include /etc/ipsec.d/private/hideio'
+  notify:
+    - restart ipsec
+  
+
+
+  
+
