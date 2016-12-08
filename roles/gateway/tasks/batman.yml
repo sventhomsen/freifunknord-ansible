@@ -33,6 +33,16 @@
      state: present 
      force: yes
 
-
+- name: Setup batman-Interface 
+  template:
+    src: roles/gateway/templates/etc/network/interfaces.d/mesh-batman.y2
+    dest: /etc/network/interfaces.d/{{ mesh_shortname }}-batman
+    owner: root
+    group: root
+    mode: 0644
+  notify: 
+    - restart batman
+    - restart fastd
+  
 
  

@@ -1,0 +1,15 @@
+---
+
+- name: Setup Freifunk bridge
+  template:
+    src:  roles/gateway/templates/etc/network/interfaces.d/mesh-bridge.y2
+    dest: /etc/network/interfaces.d/{{ mesh_shortname }}-bridge
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart bridge
+
+  
+
+ 

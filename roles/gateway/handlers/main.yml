@@ -1,3 +1,5 @@
 ---
 
 - include: restart-fastd.yml
+- include: restart-batman.yml
+- include: restart-bridge.yml

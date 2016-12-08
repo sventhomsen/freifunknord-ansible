@@ -1,0 +1,7 @@
+---
+
+- name: restart bridge
+  service:
+    name: networking
+    state: restarted
+    arguments: br-{{ mesh_shortname }}

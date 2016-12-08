@@ -6,3 +6,9 @@ gateway_mesh_mac: 'fe:ed:be:ef:ff:99'
 
 gateway_fastd_secret: 'DONOTUSEINSECURE'
 
+gateway_ipv4_address: '10.187.199.1'
+gateway_ipv4_netmask: '255.255.128.0'
+
+gateway_ipv6_address: '2a03:2267:4e6f:7264::fd99'
+gateway_ipv6_prefixlen: '64'
+

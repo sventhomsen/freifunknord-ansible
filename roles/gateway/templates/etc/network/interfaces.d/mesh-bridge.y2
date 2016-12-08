@@ -1,0 +1,20 @@
+# Mesh Bridge {{ mesh_longname }}
+auto br-{{ mesh_shortname }}
+iface br-{{ mesh_shortname }} inet6 static
+  bridge-ports none
+  pre-up    /sbin/ip -6 rule add pref 31000 iif $IFACE table {{ mesh_id }} 
+  pre-up    /sbin/ip -6 rule add pref 31001 iif $IFACE unreachable
+  post-down /sbin/ip -6 rule del pref 31000 iif $IFACE table {{ mesh_id }} 
+  post-down /sbin/ip -6 rule del pref 31001 iif $IFACE unreachable
+  post-up    /sbin/ip -6 route replace {{ mesh_ipv6_prefix }}/{{ mesh_ipv6_prefixlen }} dev $IFACE table {{ mesh_id }}  
+  address {{ gateway_ipv6_address }}
+  netmask {{ gateway_ipv6_prefixlen }}
+iface br-{{ mesh_shortname }} inet static
+  pre-up    /sbin/ip rule add pref 31000 iif $IFACE table {{ mesh_id }} 
+  pre-up    /sbin/ip rule add pref 31001 iif $IFACE unreachable
+  post-down /sbin/ip rule del pref 31000 iif $IFACE table {{ mesh_id }} 
+  post-down /sbin/ip rule del pref 31001 iif $IFACE unreachable
+  post-up    /sbin/ip route add {{ mesh_ipv4_prefix }}/{{mesh_ipv4_prefixlen}} dev $IFACE table {{ mesh_id }}
+  address {{ gateway_ipv4_address }}
+  netmask {{ gateway_ipv4_netmask }}
+

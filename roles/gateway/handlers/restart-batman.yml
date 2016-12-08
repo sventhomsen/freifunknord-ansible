@@ -1,0 +1,7 @@
+---
+
+- name: restart batman
+  service:
+    name: networking
+    state: restarted
+    arguments: bat-{{ mesh_shortname }}

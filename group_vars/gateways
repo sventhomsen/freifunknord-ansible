@@ -5,11 +5,10 @@ mesh_longname: 'Freifunk Nord'
 mesh_ipv6_prefix: 2a03:2267:4e6f:7264::0
 mesh_ipv6_prefixlen: 64
 mesh_ipv4_prefix: 10.187.0.0
+mesh_ipv4_netmask: 255.255.255.0
 mesh_ipv4_prefixlen: 16
 
 mesh_mtu: 1280
-
-gateways_domainname: ffnord.net
 
 fastd_port: 10050
 

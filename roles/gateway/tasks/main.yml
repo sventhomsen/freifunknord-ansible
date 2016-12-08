@@ -1,5 +1,7 @@
 ---
 
+- include: routing.yml
+- include: interfaces.yml
 - include: basepackages.yml 
 - include: batman.yml
 - include: fastd.yml

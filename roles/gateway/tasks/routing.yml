@@ -1,0 +1,7 @@
+---
+
+- name: Add routing table for Freifunk
+  lineinfile:
+    dest: /etc/iproute2/rt_tables
+    line: '{{ mesh_id }} {{mesh_shortname}}'
+
