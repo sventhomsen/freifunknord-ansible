@@ -1,4 +1,0 @@
-- name: Install openvpn
-  apt: 
-     name: openvpn 
-     state: latest
