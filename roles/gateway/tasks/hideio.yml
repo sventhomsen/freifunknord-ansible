@@ -5,6 +5,11 @@
     name: strongswan
     state: latest
 
+- name: Install additional modules for StrongSwan
+  apt:
+    name: libcharon-extra-plugins
+    state: latest
+
 - name: Configure StrongSwan for hide.io
   template:
     src: roles/gateway/templates/etc/ipsec.d/hideio.conf.y2
@@ -25,7 +30,3 @@
     dest: /etc/ipsec.secrets
     line: 'include /etc/ipsec.d/private/hideio'
   
-
-
-  
-
