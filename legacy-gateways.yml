@@ -1,0 +1,4 @@
+---
+- hosts: legacy-gateways
+  roles:
+    - common
