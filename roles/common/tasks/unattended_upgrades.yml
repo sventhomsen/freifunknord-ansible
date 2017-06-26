@@ -1,0 +1,16 @@
+# configure unattended upgrades, following https://wiki.debian.org/UnattendedUpgrades
+- name: Install unattended upgrades
+  apt: name=sudo state=latest
+
+- name: Install apt-listchanges
+  apt: name=apt-listchanges state=latest
+
+- name: Configure unattended upgrades
+  template:
+    src: roles/common/templates/etc/apt/apt.conf.d/20auto-upgrades
+    dest: /etc/apt/apt.conf.d/20auto-upgrades
+    owner: root
+    group: root
+    mode: 0600
+
+
